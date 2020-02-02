@@ -1,0 +1,30 @@
+{
+  "name": "radiamagent",
+  "version": "1.2.0",
+  "homepage": "https://git.computecanada.ca/radiam/radiam-agent",
+  "main": "main.js",
+  "description": "A local crawler for indexing project directories for use with https://radiam.ca",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/usask-rc/radiam-agent-releases"
+  },
+  "scripts": {
+    "start": "electron .",
+    "test": "electron . --run-tests"
+  },
+  "dependencies": {
+    "auto-launch": "^5.0.5",
+    "electron": "2.0.18",
+    "electron-squirrel-startup": "^1.0.0",
+    "electron-tooltip": "^1.1.5",
+    "node-notifier": "^5.4.0",
+    "portfinder": "^1.0.20",
+    "update-electron-app": "^1.3.0",
+    "zerorpc": "^0.9.8"
+  },
+  "files": [
+    "radiam_tray/*"
+  ],
+  "author": "Compute Canada <support@frdr.ca> (https://radiam.ca)"
+}

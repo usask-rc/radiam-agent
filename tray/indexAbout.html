@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Radiam Agent</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+  <script type="text/javascript">
+    let shell = require('electron').remote.shell
+    document.addEventListener('click', function (event) {
+      if (event.target.tagName === 'A' && event.target.href.startsWith('http')) {
+        event.preventDefault()
+        shell.openExternal(event.target.href)
+      }
+    })
+  </script>
+</head>
+
+<body>
+  <h3 align="center">Radiam <div class="version"></div></h3><br/>
+  <div id="container" class="container-fluid">
+    <center>
+      © University of Saskatchewan & Simon Fraser University
+      <a href="https://www.radiam.ca/">https://www.radiam.ca/</a>
+    </center>
+  </div>
+  <script type="text/javascript">
+    var appVersion = require('electron').remote.app.getVersion();
+    $('div.version').text(appVersion);
+  </script>
+</body>
+
+</html>

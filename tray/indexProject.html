@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8"/>
+  <title>Radiam Agent</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+</head>
+
+<body>
+  <div id="container" class="container-fluid">
+
+    <div class="row">
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 ">
+        <h3>Project Name</h3>
+        <select name="projectname" id="projectname">
+          <option>Select a project</option>
+        </select>
+        <img class="exp_icon0" src="icon_explanation.png" width="25" height="25" data-tooltip="This should match your project name from the Radiam web interface."/>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 ">
+        <h3>Project Folder</h3>
+        <input name="rootdir" id="rootdir" type="text" size="40" readonly="readonly"/>
+        <img class="exp_icon0" src="icon_explanation.png" width="25" height="25" data-tooltip="This is the local project folder that Radiam will crawl."/>
+      </div>
+    </div>
+
+    <br/><br/>
+
+    <div class="button">
+      <button class="btn btn-primary" id="setconfig">Set Config</button>
+    </div>
+
+  </div>
+  <script src="windowProject.js" charset="utf-8"></script>
+</body>
+
+</html>

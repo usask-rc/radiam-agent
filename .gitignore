@@ -1,0 +1,22 @@
+.idea
+
+# Ignore pyc
+*.pyc
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+build/
+radiam.spec
+radiam_tray.spec
+.DS_Store
+tray/.DS_Store
+tray/radiam_tray/
+tray/install/
+tray/package-lock.json
+tray/projects.json
+tray/configsetting.json
+tray/node_modules
+tray/radiam-agent*
+tray/radiamagent*
+linux_bin
+venv/
