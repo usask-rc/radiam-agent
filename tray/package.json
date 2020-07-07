@@ -15,7 +15,7 @@
   },
   "dependencies": {
     "auto-launch": "^5.0.5",
-    "electron": "2.0.18",
+    "electron": "9.1.0",
     "electron-squirrel-startup": "^1.0.0",
     "electron-tooltip": "^1.1.5",
     "node-notifier": "^5.4.0",
