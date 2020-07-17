@@ -2,11 +2,13 @@
 
 if(require('electron-squirrel-startup')) return;
 const {app, dialog, nativeImage, shell, Tray, Menu, BrowserWindow, autoUpdater} = require("electron");
-const isSecondInstance = app.makeSingleInstance((commandLine, workingDirectory) => {
-  notifier.notify({"title" : "Radiam", "message" : "Radiam is already running."});
-});
-if (isSecondInstance) {
+const gotTheLock = app.requestSingleInstanceLock();
+if (!gotTheLock) {
   app.quit();
+} else {
+  app.on('second-instance', (event, commandLine, workingDirectory) => {
+    notifier.notify({"title" : "Radiam", "message" : "Radiam is already running."});
+  });
 }
 
 require('update-electron-app')();
@@ -66,9 +68,12 @@ const getScriptPath = () => {
 
 const createWindow = () => {
   mainWindow = new BrowserWindow({
-    width: 400,
+    width: 440,
     height: 400,
     backgroundColor: "#D6D8DC",
+    webPreferences: {
+      nodeIntegration: true
+    }
   });
 
   if (app.dock) { app.dock.show() };
@@ -136,14 +141,18 @@ let port = portfinder.getPort(function (err, port) {
 const exitRadiam = () => {
   pythonChild.kill()
   pythonChild = null
+  global.client.close();
 }
 
 const getCredentials = () => {
   loginWindow = new BrowserWindow({
-    width: 360,
+    width: 400,
     height: 320,
     backgroundColor: "#D6D8DC",
-    show: false
+    show: false,
+    webPreferences: {
+      nodeIntegration: true
+    }
   })
 
   if (app.dock) { app.dock.show() }
@@ -172,10 +181,13 @@ const getCredentials = () => {
 
 const getConfigsetting = () => {
   configWindow = new BrowserWindow({
-    width: 400,
+    width: 440,
     height: 400,
     backgroundColor: "#D6D8DC",
-    show: false
+    show: false,
+    webPreferences: {
+      nodeIntegration: true
+    }
   })
 
   if (app.dock) { app.dock.show() }
@@ -207,7 +219,10 @@ const about = () => {
     width: 400,
     height: 200,
     backgroundColor: "#D6D8DC",
-    show: false
+    show: false,
+    webPreferences: {
+      nodeIntegration: true
+    }
   })
 
   if (app.dock) { app.dock.show() }
@@ -309,7 +324,7 @@ const menu = Menu.buildFromTemplate([
       });
   }},
   {label: "Change Project Folder", click: (item, window, event) => {
-      projectFolder = dialog.showOpenDialog({properties: ["openDirectory"]});
+      projectFolder = dialog.showOpenDialogSync({properties: ["openDirectory"]});
       if (projectFolder){
         client.invoke("set_project_path", JSON.stringify(projectFolder[0]), function(error, res, more) {} );
       }
@@ -329,7 +344,7 @@ const menu = Menu.buildFromTemplate([
   }},
   {label: "Advanced Settings", click: (item, window, event) => {
       client.invoke("settings", function(error, res, more) {
-          shell.openItem(res);
+          shell.openPath(res);
       });
       crawlSuccess = null
   }},

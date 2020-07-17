@@ -61,7 +61,7 @@ if platform.system() == 'Windows':
 else:
     import pwd
 
-version = '1.2'
+version = '1.3.1'
 __version__ = version
 
 default_location_type = "location.type.server"

@@ -1,10 +1,8 @@
 const notifier = require('node-notifier');
-const tt = require('electron-tooltip');
 const {dialog} = require('electron').remote;
 const remote = require('electron').remote;
 let client = remote.getGlobal('client');
 let projectFolder = null;
-tt({position: 'right'})
 
 function setconfig() {
   var projectname = document.getElementById("projectname").value;
@@ -23,7 +21,7 @@ function setconfig() {
 }
 
 function setlocation() {
-  projectFolder = dialog.showOpenDialog({properties: ["openDirectory"]});
+  projectFolder = dialog.showOpenDialogSync({properties: ["openDirectory"]});
   if (projectFolder){
     document.getElementById("rootdir").value = projectFolder;
   }
