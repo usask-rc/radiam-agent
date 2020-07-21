@@ -1,9 +1,7 @@
 const notifier = require('node-notifier');
 const remote = require('electron').remote;
-const tt = require('electron-tooltip');
 let client = remote.getGlobal('client');
 let projectFolder = null;
-tt({position: 'right'})
 
 function login() {
   var hostname = document.getElementById("hostname").value;

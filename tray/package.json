@@ -1,6 +1,6 @@
 {
   "name": "radiamagent",
-  "version": "1.2.0",
+  "version": "1.3.1",
   "homepage": "https://git.computecanada.ca/radiam/radiam-agent",
   "main": "main.js",
   "description": "A local crawler for indexing project directories for use with https://radiam.ca",
@@ -15,13 +15,13 @@
   },
   "dependencies": {
     "auto-launch": "^5.0.5",
-    "electron": "2.0.18",
+    "electron": "~9.1.0",
     "electron-squirrel-startup": "^1.0.0",
-    "electron-tooltip": "^1.1.5",
+    "jquery": "~3.5.1",
     "node-notifier": "^5.4.0",
     "portfinder": "^1.0.20",
     "update-electron-app": "^1.3.0",
-    "zerorpc": "^0.9.8"
+    "zerorpc": "hokiedsp/zerorpc-node#dev_zmq6"
   },
   "files": [
     "radiam_tray/*"
