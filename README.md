@@ -1,11 +1,16 @@
 # Radiam Agent
 
 
-## Binaries Available
+************ **WARNING** ************
 
-On Windows or Mac you may want to run a precompiled binary instead of following these instructions:
+THIS CODE IS NO LONGER MAINTAINED
 
-https://github.com/usask-rc/radiam-agent-releases
+It contains known security isssues
+
+Use at your own risk
+
+************ **WARNING** ************
+
 
 ## Getting Started
 
